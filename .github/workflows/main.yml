@@ -1,0 +1,14 @@
+  - name: Checkmarx AST Github Action
+  # You may pin to the exact commit or the version.
+  # uses: checkmarx/ast-github-action@1fe318de2993222574e6249750ba9000a4e2a6cd 
+  uses: Checkmarx/ast-github-action@2.3.36
+  with:
+    # Provide the AST portal URL
+    base_uri: https://ind.ast.checkmarx.net/
+    cx_tenant: cdac
+    cx_client_id: additinal_params
+    cx_client_secret: ZzZOQEwkPdMdnZI9JHAwlfEoJgyV1McN
+    scan_params: --scan-types sast
+    
+   
+          
