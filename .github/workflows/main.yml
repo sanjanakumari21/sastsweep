@@ -1,14 +1,6 @@
 name: Checkmarx AST Scan
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 jobs:
@@ -16,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Run Checkmarx AST Scan
@@ -25,24 +17,11 @@ jobs:
         with:
           base_uri: https://ind.ast.checkmarx.net/
           cx_tenant: cdac
-
-          # Store these in GitHub Secrets
           cx_client_id: additinal_params
           cx_client_secret: ZzZOQEwkPdMdnZI9JHAwlfEoJgyV1McN
+          project_name: github_repo_addparam
 
-          # Project details
-          project_name: github_repo
-
-          # Scan parameters
-          scan_params: >
+          additional_params: >
             --scan-types sast
-            --sast-preset-name "Checkmarx Default"
             --report-format json
             --output-path ./cx-results
-            --threshold "sast-high=1;sast-medium=1"
-
-      - name: Upload Scan Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: checkmarx-reports
-          path: ./cx-results
