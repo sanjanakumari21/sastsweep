@@ -19,7 +19,8 @@ jobs:
           cx_tenant: cdac
           cx_client_id: additinal_params
           cx_client_secret: ZzZOQEwkPdMdnZI9JHAwlfEoJgyV1McN
-          project_name: github_repo_addparam
+
+          project_name: guthub_repo-addparam
 
           additional_params: >
             --scan-types sast
